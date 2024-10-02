@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="estate_property_views_form" model="ir.ui.view">
+        <field name="name">estate.property.views.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate">
+                <sheet name="estate_form">
+                    <div class="oe_title shadow-lg p-3 mb-5 bg-body-tertiary rounded fst-italic">
+                        <label for="name" string="Estate name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name" options="{'line_breaks': False}" widget="text" placeholder="e.g. Cozy Villa"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_availability"/>
+                            <field name="postcode"/>
+                        </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" class="fw-bold bg-primary-subtle">
+                            <div class="text-bg-secondary p-3"> 
+                                <label for="description" string="Description"/>
+                                <field name="description"/>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input name="description" class="form-control" id="description" placeholder="description"/>
+                                <label for="description" string="Description"/>
+                            </div>
+                            <div class="text-bg-info p-3">
+                                <label for="bedrooms" string="Bedrooms"/>
+                                <field name="bedrooms"/>
+                            </div>
+                                <label for="living_area" string="Living_area (sqm)"/>
+                                <field name="living_area"/>
+                            <div>
+                                <label for="facades" string="Facades"/>
+                                <field name="facades"/>
+                            </div>
+                            <div>
+                                <label for="garage" string="Garage"/>
+                                <field name="garage"/>
+                            </div>
+                                <label for="garden" string="Garden"/>
+                                <field name="garden"/>
+                            <div>
+                                <label for="garden_area" string="Garden_area (sqm)"/>
+                                <field name="garden_area"/>
+                            </div>
+                            <div>
+                                <label for="garden_orientation" string="Garden orientation"/>
+                                <field name="garden_orientation"/>
+                            </div>      
+                        </page>
+                         <page string="Main info">
+                         <section>
+                            <div class="o_we_bg_filter" style="background-image: linear-gradient(135deg, rgba(255, 204, 51, 0.5) 0%, rgba(226, 51, 255, 0.5) 100%) !important;"/>
+                            <div class="container">
+                                <label for="garden_orientation" string="Garden orientation"/>
+                                <field name="garden_orientation"/>
+                            </div>
+                        </section>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="estate_property_views_tree" model="ir.ui.view">
+        <field name="name">estate.property.views.tree</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree string="Properties">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="bedrooms"/>
+                <field name="date_availability"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Estate property</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_estate_config_settings" model="ir.actions.act_window">
+        <field name="name">Estate Settings</field> 
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>
