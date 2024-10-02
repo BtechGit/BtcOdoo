@@ -20,4 +20,10 @@
               parent="estate_menu_root"
               sequence="10"/>
 
+    <menuitem id="estate_configuration_settings_menu" 
+              name="Settings"
+              parent="estate_configuration_menu"
+              action="action_estate_config_settings"
+              sequence="10"/> 
+
 </odoo>
